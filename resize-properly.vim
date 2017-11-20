@@ -1,7 +1,19 @@
-augroup resize_properly
+scriptencoding utf-8
+
+" vim-surii-saizu
+" Author: Sheldon Johnson
+" Version: 0.1
+
+if exists('g:loaded_surii_saizu') || &compatible
+  finish
+endif
+
+let g:loaded_surii_saizu = 1
+
+augroup ResizeProperly
   autocmd!
   autocmd WinNew,WinEnter * call RPUpdateWindowRatios()
-  autocmd VimResized * call RPResizeWindows() | call RPUpdateWindowRatios() | redraw!
+  autocmd VimResized * call RPResizeWindows() | call RPUpdateWindowRatios() | redraw
 augroup END
 
 function! RPUpdateWindowRatios()
