@@ -34,7 +34,7 @@ endfunction
 
 function! surii_saizu#GetWindowRatio(winnr)
   let l:width_fraction = floor(winwidth(a:winnr)) / floor(&columns)
-  let l:height_fraction = floor(winheight(a:winnr)) / floor(&lines)
+  let l:height_fraction = floor(winheight(a:winnr)) / floor(&lines - 2)
   return [l:width_fraction, l:height_fraction]
 endfunction
 
@@ -44,7 +44,7 @@ function! surii_saizu#ResizeWindows()
     let l:cmd = "vertical " . i . "resize " . l:width
     execute l:cmd
 
-    let l:height = float2nr(round(g:surii_saizu_window_ratios[i][1] * floor(&lines)))
+    let l:height = float2nr(round(g:surii_saizu_window_ratios[i][1] * floor(&lines - 2)))
     let l:cmd =  "resize " . l:height
     execute l:cmd
   endfor
