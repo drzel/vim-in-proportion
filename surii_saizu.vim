@@ -13,7 +13,8 @@ let g:loaded_surii_saizu = 1
 augroup surii_saizu
   autocmd!
   autocmd WinNew,WinEnter * call surii_saizu#UpdateWindowRatios()
-  autocmd VimResized * call surii_saizu#ResizeWindows() |
+  autocmd VimResized *
+        \ call surii_saizu#ResizeWindows() |
         \ call surii_saizu#UpdateWindowRatios() |
         \ redraw
 augroup END
